@@ -1,0 +1,18 @@
+# Path: src\tekkit-classic\docker-compose.yml
+version: '3.7'
+
+services:
+  tekkit-classic:
+    image: bennischober/tekkit-classic:latest #change image to the technic pack you want to run
+    environment:
+      EULA: "true"
+    container_name: tekkit-classic
+    restart: unless-stopped
+    ports:
+      - 26565:25565 # change the port to the port you want to use => on my machine 25565 is already in use => 26565 is used for tekkit here
+    volumes:
+      - ./data:/tekkit-classic
+    stdin_open: true
+    tty: true
+volumes:
+  data: {}
